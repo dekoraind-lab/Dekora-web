@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
     font-family: 'LucidaSansDemiboldRoman';
     src: url('lsansd.eot');
@@ -6,3 +7,13 @@
          url('lsansd.ttf') format('truetype'),
          url('lsansd.svg#LucidaSansDemiboldRoman') format('svg');
 }
+=======
+@font-face {
+    font-family: 'LucidaSansDemiboldRoman';
+    src: url('lsansd.eot');
+    src: url('lsansd.eot') format('embedded-opentype'),
+         url('lsansd.woff') format('woff'),
+         url('lsansd.ttf') format('truetype'),
+         url('lsansd.svg#LucidaSansDemiboldRoman') format('svg');
+}
+>>>>>>> 5e77c66fb365d599fca121e7eb857b35a0fcace8
