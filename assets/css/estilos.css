@@ -1,0 +1,3777 @@
+/*
+  DEKORA WEBSITE STYLES
+  This file contains the shared styles for the website.
+  Keep image paths relative to each HTML file, for example:
+  assets/img/latex-superior-4lts.webp
+*/
+
+/* =========================================================
+   DEKORA INDUSTRIAL
+   Author: Jose Alvarado
+   File: estilos.css
+   ========================================================= */
+
+/* =========================================================
+   LATEST CHANGES — September 3, 2026
+   - Refined the hero section for a more editorial appearance.
+   - Improved responsive spacing and typography.
+   - Added accessible focus states and safer image behavior.
+   - Kept legacy styles for older internal pages.
+   ========================================================= */
+
+/*
+================================================================
+DEKORA INDUSTRIAL — 2026
+Premium editorial visual system
+Paint · Color · Finishes · Inspiration
+
+This stylesheet controls the redesigned homepage and keeps a
+small compatibility layer for older internal pages.
+
+IMPORTANT:
+- index.html does NOT load the old global.css.
+- The old jQuery slideshow is no longer used by the homepage.
+- Legacy classes are retained at the bottom until internal pages
+  are redesigned.
+================================================================
+*/
+
+
+/* ==============================================================
+   1. COLOR PALETTE
+   ============================================================== */
+
+:root {
+    --cream: #F4F0E8;
+    --warm-white: #FAF8F3;
+    --olive: #65705A;
+    --deep-green: #34443A;
+    --terracotta: #A66A52;
+    --charcoal: #292924;
+    --soft-grey: #D8D3C8;
+    --white: #FFFFFF;
+
+    --content-width: 1240px;
+    --wide-width: 1400px;
+}
+
+
+/* ==============================================================
+   2. RESET / BASE
+   ============================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: var(--cream);
+    color: var(--charcoal);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p {
+    margin: 0 0 20px;
+}
+
+
+/* ==============================================================
+   3. TYPOGRAPHY
+   ============================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+
+    color: var(--charcoal);
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+h1 {
+    font-size: clamp(50px, 7vw, 96px);
+}
+
+h2 {
+    font-size: clamp(42px, 5.5vw, 74px);
+}
+
+h3 {
+    font-size: 34px;
+}
+
+h4 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.eyebrow {
+    margin-bottom: 18px;
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+}
+
+.texto_blanco {
+    color: var(--white);
+}
+
+
+/* ==============================================================
+   4. MAIN WEBSITE CONTAINER
+   ============================================================== */
+
+#contenedor {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+
+    overflow: hidden;
+}
+
+
+/* ==============================================================
+   5. HEADER
+   ============================================================== */
+
+#cabecera,
+.site-header {
+    width: 100%;
+
+    background: var(--warm-white);
+
+    border-bottom: 1px solid rgba(41, 41, 36, 0.12);
+}
+
+.top-bar {
+    width: 100%;
+    min-height: 32px;
+
+    padding: 7px 4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--deep-green);
+    color: var(--warm-white);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.main-header {
+    width: min(var(--wide-width), 92%);
+    min-height: 108px;
+
+    margin: 0 auto;
+    padding: 18px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.logo {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: auto;
+    max-width: 155px;
+    max-height: 78px;
+
+    object-fit: contain;
+}
+
+#menu,
+.main-nav {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 30px;
+
+    float: none;
+}
+
+#menu ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#menu li {
+    margin: 0;
+    padding: 0;
+}
+
+#menu li a,
+.main-nav a {
+    display: inline-block;
+
+    padding: 10px 0;
+
+    color: var(--charcoal);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    letter-spacing: 0.14em;
+    text-align: center;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+#menu li a:hover,
+#menu li.selection a,
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--olive);
+    border-bottom-color: var(--olive);
+}
+
+/* Container for your nav links */
+.nav-links,
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    /* Controls the exact space between each link consistently */
+}
+
+/* Individual navigation links */
+.nav-links a,
+header nav a {
+    font-family: inherit;
+    /* Inherits your main site font family */
+    font-size: 0.95rem;
+    /* Fixes a uniform font size across all tabs */
+    font-weight: 500;
+    /* Ensures consistent font weight */
+    text-transform: uppercase;
+    /* If your design uses uppercase */
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #333;
+    /* Adjust to your text color */
+    padding: 0.5rem 0;
+    /* Consistent vertical padding */
+    transition: color 0.2s ease;
+}
+
+/* Active tab style */
+.nav-links a.active,
+header nav a.active {
+    font-weight: 700;
+    /* Makes the current tab bold */
+    border-bottom: 2px solid currentColor;
+    /* Optional: standard active indicator */
+}
+
+/* ==============================================================
+   6. HERO
+   --------------------------------------------------------------
+   The current image is temporary. The layout is ready for the
+   future 2026 editorial hero photograph.
+   ============================================================== */
+
+#banner,
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 78vh;
+    min-height: 560px;
+    max-height: 850px;
+
+    overflow: hidden;
+
+    background: var(--deep-green);
+}
+
+.hero>img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: rgba(0, 0, 0, 0.18);
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: absolute;
+    z-index: 2;
+
+    left: 8%;
+    bottom: 12%;
+
+    width: min(680px, 82%);
+}
+
+.hero-content .eyebrow {
+    color: var(--white);
+}
+
+.hero-content h1 {
+    max-width: 700px;
+    margin-bottom: 28px;
+
+    color: var(--white);
+}
+
+.hero-description {
+    max-width: 480px;
+
+    margin: 0 0 30px;
+
+    color: var(--white);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+
+/* ==============================================================
+   7. BUTTONS
+   ============================================================== */
+
+.button {
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    background: var(--warm-white);
+    color: var(--charcoal);
+
+    border: 1px solid var(--warm-white);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.button:hover {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+
+/* ==============================================================
+   8. GENERAL SECTION UTILITY
+   ============================================================== */
+
+section {
+    position: relative;
+}
+
+.section-container {
+    width: min(1200px, 88%);
+    margin: 0 auto;
+}
+
+
+/* ==============================================================
+   9. INTRODUCTION / MAIN PAINT
+   ============================================================== */
+
+.intro {
+    width: min(var(--content-width), 88%);
+
+    margin: 0 auto;
+    padding: 125px 0;
+
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    align-items: center;
+
+    gap: 90px;
+}
+
+.intro-image {
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: var(--cream);
+}
+
+.intro-image img {
+    width: 100%;
+    height: 620px;
+
+    padding: 45px;
+
+    object-fit: contain;
+    object-position: center;
+
+    filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.10));
+}
+
+.intro-text {
+    padding: 20px 0;
+}
+
+.intro-text .eyebrow {
+    color: var(--olive);
+}
+
+.intro-text h2 {
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.intro-text p {
+    max-width: 500px;
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 8px;
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid var(--charcoal);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.text-link:hover {
+    color: var(--olive);
+    border-color: var(--olive);
+}
+
+
+/* ==============================================================
+   10. BRAND STATEMENT
+   ============================================================== */
+
+.statement {
+    padding: 135px 8%;
+
+    background: var(--olive);
+    color: var(--warm-white);
+
+    text-align: center;
+}
+
+.statement .eyebrow {
+    color: var(--warm-white);
+}
+
+.statement h2 {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    color: var(--warm-white);
+}
+
+
+/* ==============================================================
+   11. PRODUCTS
+   ============================================================== */
+
+.products-section {
+    padding: 125px 0;
+
+    background: var(--warm-white);
+}
+
+.products-header {
+    width: min(900px, 88%);
+
+    margin: 0 auto 75px;
+
+    text-align: center;
+}
+
+.products-header .eyebrow {
+    color: var(--olive);
+}
+
+.products-header h2 {
+    margin-bottom: 25px;
+}
+
+.products-header p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.products-grid {
+    width: min(1240px, 88%);
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+}
+
+.product-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--cream);
+}
+
+.product-card img {
+    width: 100%;
+    height: 510px;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+/* The paint container is a transparent PNG, not a photograph. */
+.product-card:first-child img {
+    object-fit: contain;
+
+    padding: 45px;
+
+    background: var(--cream);
+
+    filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.10));
+}
+
+.product-card:hover img {
+    transform: scale(1.025);
+}
+
+.product-card-content {
+    padding: 26px 10px 40px;
+}
+
+.product-card-content .eyebrow {
+    color: var(--olive);
+}
+
+.product-card-content h3 {
+    margin-bottom: 12px;
+}
+
+.product-card-content p {
+    margin-bottom: 12px;
+}
+
+
+/* ==============================================================
+   12. PROFESSIONAL SERVICES
+   ============================================================== */
+
+.services {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.service {
+    position: relative;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    background: var(--deep-green);
+}
+
+.service img {
+    width: 100%;
+    height: 100%;
+    min-height: 650px;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.service:hover img {
+    transform: scale(1.025);
+}
+
+.service-content {
+    position: absolute;
+    z-index: 2;
+
+    left: 8%;
+    right: 8%;
+    bottom: 9%;
+}
+
+.service-content::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+
+    inset: -45px -35px -35px;
+
+    background: rgba(0, 0, 0, 0.28);
+}
+
+.service-content .eyebrow,
+.service-content h2,
+.service-content p {
+    color: var(--white);
+}
+
+.service-content h2 {
+    margin-bottom: 20px;
+}
+
+.service-content p {
+    max-width: 480px;
+}
+
+
+/* ==============================================================
+   13. INSPIRATION
+   ============================================================== */
+
+.inspiration {
+    padding: 125px 0;
+
+    background: var(--cream);
+}
+
+.inspiration-header {
+    width: min(900px, 88%);
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.inspiration-header .eyebrow {
+    color: var(--olive);
+}
+
+.inspiration-header h2 {
+    margin-bottom: 25px;
+}
+
+.inspiration-header p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inspiration-image {
+    width: min(1400px, 92%);
+    height: 700px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+}
+
+.inspiration-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.inspiration-image:hover img {
+    transform: scale(1.015);
+}
+
+
+/* ==============================================================
+   14. CONTACT CTA
+   ============================================================== */
+
+.cta {
+    padding: 125px 8%;
+
+    background: var(--deep-green);
+    color: var(--warm-white);
+
+    text-align: center;
+}
+
+.cta .eyebrow {
+    color: var(--warm-white);
+}
+
+.cta h2 {
+    max-width: 900px;
+
+    margin: 0 auto 35px;
+
+    color: var(--warm-white);
+}
+
+.cta p {
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    color: var(--warm-white);
+}
+
+
+/* ==============================================================
+   15. FOOTER
+   ============================================================== */
+
+#piepagina,
+.site-footer {
+    width: 100%;
+    min-height: 300px;
+
+    padding: 70px 6% 30px;
+
+    background: var(--charcoal);
+    color: var(--warm-white);
+}
+
+.site-footer a {
+    color: var(--warm-white);
+
+    transition: opacity 0.25s ease;
+}
+
+.site-footer a:hover {
+    opacity: 0.6;
+}
+
+.footer-brand {
+    margin-bottom: 50px;
+}
+
+.footer-brand img {
+    width: 150px;
+    max-height: 78px;
+
+    object-fit: contain;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 60px;
+
+    margin-bottom: 60px;
+}
+
+.footer-columns h3 {
+    margin-bottom: 20px;
+
+    color: var(--warm-white);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.footer-columns a {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+}
+
+.footer-columns p {
+    max-width: 320px;
+    color: var(--warm-white);
+}
+
+.copyright {
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 10px;
+    letter-spacing: 0.08em;
+}
+
+
+/* ==============================================================
+   16. LEGACY DEKORA CLASSES
+   --------------------------------------------------------------
+   Keep these until the older internal pages are redesigned.
+   ============================================================== */
+
+.caja_negra {
+    width: 100%;
+    height: auto;
+
+    padding: 100px 8%;
+
+    background: var(--deep-green);
+}
+
+.caja_cuerpo {
+    width: 100%;
+    height: auto;
+
+    padding: 100px 8%;
+
+    background: var(--cream);
+}
+
+.img_bienvenidos,
+.img_ofrecemos {
+    max-width: 1200px;
+    margin: 30px auto 0;
+}
+
+.titulos {
+    width: auto;
+}
+
+.caja_interior {
+    margin: 40px 0;
+}
+
+
+/* ==============================================================
+   17. CONTACT PAGE COMPATIBILITY
+   ============================================================== */
+
+.caja_contactenos {
+    width: 100%;
+    max-width: 500px;
+    float: none;
+}
+
+#contacto {
+    margin-top: 40px;
+    float: none;
+}
+
+.rotulos {
+    width: 120px;
+
+    display: block;
+    float: left;
+
+    padding: 5px 10px 5px 0;
+
+    color: var(--charcoal);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: right;
+}
+
+.campos {
+    width: calc(100% - 130px);
+
+    display: block;
+    float: left;
+
+    padding: 5px;
+}
+
+.campo {
+    width: 100%;
+    padding: 10px;
+
+    background: var(--warm-white);
+    border: 1px solid var(--soft-grey);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.campo:focus {
+    border-color: var(--olive);
+}
+
+.boton {
+    width: 160px;
+
+    padding: 12px 20px;
+
+    background: var(--olive);
+    color: var(--white);
+
+    border: none;
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: background 0.25s ease;
+}
+
+.boton:hover {
+    background: var(--deep-green);
+}
+
+[required] {
+    border: 1px solid var(--soft-grey);
+}
+
+
+/* ==============================================================
+   18. MAP
+   ============================================================== */
+
+.mapa {
+    width: 100%;
+    max-width: 100%;
+
+    height: 450px;
+
+    margin: 40px 0;
+
+    float: none;
+}
+
+
+/* ==============================================================
+   19. ACCORDION
+   ============================================================== */
+
+.accordion {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 40px auto;
+
+    border-bottom: 1px solid var(--soft-grey);
+}
+
+.accordion h3 {
+    margin: 0;
+    padding: 18px 20px;
+
+    background: var(--warm-white);
+    color: var(--charcoal);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+
+    border: 1px solid var(--soft-grey);
+    border-bottom: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.accordion h3:hover,
+.accordion h3.active {
+    background: var(--olive);
+    color: var(--white);
+}
+
+.accordion p {
+    margin: 0;
+    padding: 20px;
+
+    background: var(--warm-white);
+
+    border-left: 1px solid var(--soft-grey);
+    border-right: 1px solid var(--soft-grey);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ==============================================================
+   20. CLIENT IMAGES
+   ============================================================== */
+
+.img_clientes {
+    width: 100%;
+    margin-top: 40px;
+}
+
+
+/* ==============================================================
+   21. FLOAT CLEARING
+   ============================================================== */
+
+.limpiar {
+    clear: both;
+}
+
+
+/* ==============================================================
+   22. RESPONSIVE — TABLETS
+   ============================================================== */
+
+@media (max-width: 1000px) {
+
+    .main-header {
+        width: 90%;
+
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 25px 0;
+
+        gap: 20px;
+    }
+
+    #menu,
+    .main-nav {
+        justify-content: center;
+    }
+
+    #menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 10px 25px;
+    }
+
+    #menu li a,
+    .main-nav a {
+        font-size: 10px;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .intro-image {
+        min-height: 0;
+    }
+
+    .intro-image img {
+        height: 540px;
+    }
+
+    .intro-text {
+        padding: 0;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .service,
+    .service img {
+        min-height: 560px;
+    }
+
+    .inspiration-image {
+        height: 570px;
+    }
+
+    .footer-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ==============================================================
+   23. RESPONSIVE — MOBILE
+   ============================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .top-bar {
+        padding: 8px 5%;
+        font-size: 8px;
+        letter-spacing: 0.08em;
+    }
+
+    /* Hide the second top-bar label on narrow screens. */
+    .top-bar span:last-child {
+        display: none;
+    }
+
+    .main-header {
+        width: 90%;
+        min-height: auto;
+
+        padding: 24px 0 20px;
+    }
+
+    .logo img {
+        max-width: 145px;
+        max-height: 72px;
+    }
+
+    #menu,
+    .main-nav {
+        width: 100%;
+    }
+
+    #menu ul {
+        width: 100%;
+        gap: 5px 18px;
+    }
+
+    #menu li a,
+    .main-nav a {
+        font-size: 9px;
+        letter-spacing: 0.08em;
+    }
+
+    .hero {
+        height: 72vh;
+        min-height: 500px;
+    }
+
+    .hero-content {
+        left: 7%;
+        bottom: 10%;
+
+        width: 86%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(46px, 13vw, 70px);
+    }
+
+    .hero-description {
+        max-width: 420px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .intro {
+        width: 86%;
+        padding: 80px 0;
+    }
+
+    .intro-image img {
+        height: 410px;
+        padding: 30px;
+    }
+
+    .statement {
+        padding: 90px 7%;
+    }
+
+    .statement h2 {
+        font-size: 44px;
+    }
+
+    .products-section {
+        padding: 85px 0;
+    }
+
+    .products-grid {
+        width: 86%;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .product-card img {
+        height: 450px;
+    }
+
+    .product-card:first-child img {
+        padding: 30px;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .service,
+    .service img {
+        min-height: 500px;
+    }
+
+    .inspiration {
+        padding: 85px 0;
+    }
+
+    .inspiration-image {
+        width: 86%;
+        height: 450px;
+    }
+
+    .cta {
+        padding: 90px 7%;
+    }
+
+    #piepagina,
+    .site-footer {
+        padding: 60px 7% 25px;
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .rotulos {
+        width: 100%;
+        float: none;
+
+        padding: 5px 0;
+
+        text-align: left;
+    }
+
+    .campos {
+        width: 100%;
+        float: none;
+
+        padding: 5px 0 15px;
+    }
+}
+
+
+/* ==============================================================
+   24. RESPONSIVE — VERY SMALL SCREENS
+   ============================================================== */
+
+@media (max-width: 450px) {
+
+    .main-nav {
+        gap: 10px;
+    }
+
+    #menu ul {
+        gap: 4px 12px;
+    }
+
+    #menu li a,
+    .main-nav a {
+        font-size: 8px;
+    }
+
+    .hero-content h1 {
+        font-size: 46px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .intro-image img {
+        height: 330px;
+        padding: 20px;
+    }
+
+    .statement h2 {
+        font-size: 39px;
+    }
+
+    .product-card img {
+        height: 350px;
+    }
+
+    .service,
+    .service img {
+        min-height: 420px;
+    }
+
+    .inspiration-image {
+        height: 350px;
+    }
+
+    .button {
+        padding: 13px 20px;
+        font-size: 9px;
+    }
+}
+
+/* ==============================================================
+   25. FINAL HOMEPAGE REFINEMENTS
+   These rules improve the visual hierarchy without changing the
+   HTML structure. They are easy to adjust as the new photography
+   is added later.
+   ============================================================== */
+
+/* Keep hero text readable over both light and dark photographs. */
+.hero::after {
+    background:
+        linear-gradient(90deg, rgba(20, 25, 20, 0.52) 0%, rgba(20, 25, 20, 0.18) 58%, rgba(20, 25, 20, 0.04) 100%);
+}
+
+/* Give the hero a more intentional editorial composition. */
+.hero-content {
+    max-width: 760px;
+    padding: 0 0 8px;
+}
+
+.hero-content h1 {
+    max-width: 760px;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+.hero-description {
+    max-width: 420px;
+}
+
+/* Make buttons feel lighter and more refined. */
+.button {
+    border-radius: 0;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+/* Keep image containers stable while photographs are replaced. */
+.hero>img,
+.inspiration-image img,
+.service>img,
+.product-card img {
+    backface-visibility: hidden;
+}
+
+/* Improve reading width and vertical rhythm on medium screens. */
+@media (max-width: 1000px) {
+    .hero {
+        height: 72vh;
+        min-height: 520px;
+    }
+
+    .hero-content {
+        left: 7%;
+        width: 82%;
+    }
+
+    .intro,
+    .products-section,
+    .inspiration {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+/* Mobile layout: keep the headline prominent without crowding. */
+@media (max-width: 700px) {
+    .hero {
+        height: 76vh;
+        min-height: 520px;
+    }
+
+    .hero::after {
+        background: linear-gradient(180deg, rgba(20, 25, 20, 0.08) 0%, rgba(20, 25, 20, 0.56) 72%, rgba(20, 25, 20, 0.68) 100%);
+    }
+
+    .hero-content {
+        left: 7%;
+        bottom: 9%;
+        width: 86%;
+    }
+
+    .hero-content h1 {
+        max-width: 560px;
+        margin-bottom: 22px;
+        letter-spacing: -0.015em;
+    }
+
+    .hero-description {
+        max-width: 360px;
+        margin-bottom: 26px;
+    }
+
+    .intro-text h2,
+    .statement h2,
+    .products-header h2,
+    .inspiration-header h2,
+    .cta h2 {
+        text-wrap: balance;
+    }
+}
+
+/* Very small screens: prevent oversized text and cramped buttons. */
+@media (max-width: 450px) {
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-content {
+        bottom: 8%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(42px, 13vw, 58px);
+    }
+
+    .button {
+        padding: 13px 20px;
+    }
+}
+
+/* Visible keyboard focus helps visitors navigate without a mouse. */
+.button:focus-visible,
+.text-link:focus-visible,
+.main-nav a:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 5px;
+}
+
+/* Respect visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================
+   STAGE 5 — PRODUCT COMPARISON REFINEMENT
+   Keeps the latex range easy to compare before the artwork update.
+   ========================================================= */
+
+.product-card-latex .product-card-content {
+    gap: 0.85rem;
+}
+
+.latex-product-list {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0.35rem 0 0.25rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid rgba(31, 41, 35, 0.14);
+    border-bottom: 1px solid rgba(31, 41, 35, 0.14);
+}
+
+.latex-product-list p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.latex-product-list strong {
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .latex-product-list {
+        padding: 0.7rem 0;
+    }
+
+    .latex-product-list p {
+        font-size: 0.88rem;
+    }
+}
+
+/* =========================================================
+   STAGE 5 — PRODUCT COMPARISON REFINEMENT
+   Keeps the latex range easy to compare before the artwork update.
+   ========================================================= */
+.product-card-latex .product-card-content {
+    gap: 0.85rem;
+}
+
+.latex-product-list {
+    display: grid;
+    gap: .35rem;
+    margin: .35rem 0 .25rem;
+    padding: .85rem 0;
+    border-top: 1px solid rgba(31, 41, 35, .14);
+    border-bottom: 1px solid rgba(31, 41, 35, .14);
+}
+
+.latex-product-list p {
+    margin: 0;
+    font-size: .92rem;
+    line-height: 1.45;
+}
+
+.latex-product-list strong {
+    font-weight: 700;
+}
+
+@media (max-width:600px) {
+    .latex-product-list {
+        padding: .7rem 0;
+    }
+
+    .latex-product-list p {
+        font-size: .88rem;
+    }
+}
+
+
+/* COMPLEMENTOS — catálogo independiente */
+.catalog-page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 72px 24px;
+}
+
+.catalog-intro {
+    max-width: 720px;
+    margin-bottom: 42px;
+}
+
+.catalog-intro h1 {
+    margin: 8px 0 16px;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    line-height: 1.05;
+}
+
+.catalog-intro>p:last-child {
+    max-width: 620px;
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.complementos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.complementos-grid .product-card {
+    overflow: hidden;
+}
+
+.complementos-grid .product-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.complementos-grid .product-card h2 {
+    margin: 8px 0 12px;
+}
+
+.product-meta {
+    margin-top: 18px;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    opacity: .65;
+}
+
+@media (max-width: 700px) {
+    .catalog-page {
+        padding: 48px 18px;
+    }
+
+    .complementos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .complementos-grid .product-card img {
+        height: 220px;
+    }
+}
+
+
+/* =========================================================
+   ETAPA 10 — CATÁLOGO TÉCNICO Y NAVEGACIÓN
+   - Menú separado para Pinturas látex y Complementos.
+   - Fichas técnicas legibles y consistentes con el sitio.
+   - Mantiene temporalmente las imágenes actuales.
+   ========================================================= */
+.catalog-detail-page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 72px 28px 90px;
+}
+
+.catalog-detail-intro {
+    max-width: 760px;
+    margin-bottom: 44px;
+}
+
+.catalog-detail-intro h1 {
+    margin: 8px 0 18px;
+}
+
+.catalog-detail-intro p {
+    max-width: 680px;
+    line-height: 1.8;
+}
+
+.catalog-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.catalog-detail-card {
+    background: #fffdf9;
+    border: 1px solid rgba(40, 48, 40, .14);
+    padding: 0;
+}
+
+.catalog-detail-card .product-card-media {
+    background: #f0eee7;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.catalog-detail-card .product-card-media img {
+    max-width: 100%;
+    height: 260px;
+    object-fit: contain;
+}
+
+.catalog-detail-card-content {
+    padding: 30px;
+}
+
+.catalog-detail-card h2 {
+    margin: 6px 0 10px;
+}
+
+.product-lead {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+}
+
+.spec-section {
+    border-top: 1px solid rgba(40, 48, 40, .14);
+    padding-top: 22px;
+    margin-top: 24px;
+}
+
+.spec-section h3 {
+    font-size: .82rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+    color: #56634f;
+}
+
+.spec-section p {
+    line-height: 1.75;
+    margin: 0 0 14px;
+}
+
+.spec-section ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.spec-section li {
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.spec-table td {
+    border-bottom: 1px solid rgba(40, 48, 40, .12);
+    padding: 10px 0;
+    vertical-align: top;
+    line-height: 1.55;
+}
+
+.spec-table td:first-child {
+    width: 42%;
+    font-weight: 600;
+    padding-right: 14px;
+    color: #394337;
+}
+
+@media (max-width: 760px) {
+    .catalog-detail-page {
+        padding: 48px 18px 64px;
+    }
+
+    .catalog-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .catalog-detail-card-content {
+        padding: 22px;
+    }
+
+    .catalog-detail-card .product-card-media {
+        min-height: 220px;
+    }
+
+    .catalog-detail-card .product-card-media img {
+        height: 220px;
+    }
+}
+
+
+/* ==========================================================
+   26. TECHNICAL PRODUCT CATALOG
+   Consistent typography and spacing for product descriptions.
+   ========================================================== */
+.catalog-detail-page {
+    width: min(1240px, 88%);
+    margin: 0 auto;
+    padding: 110px 0;
+}
+
+.catalog-detail-intro {
+    max-width: 760px;
+    margin-bottom: 70px;
+}
+
+.catalog-detail-intro h1 {
+    margin-bottom: 24px;
+}
+
+.catalog-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.catalog-detail-card {
+    background: var(--cream);
+    border: 1px solid var(--soft-grey);
+    overflow: hidden;
+}
+
+.product-card-media {
+    background: var(--warm-white);
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card-media img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.catalog-detail-card-content {
+    padding: 32px;
+}
+
+.catalog-detail-card-content h2 {
+    margin-bottom: 16px;
+}
+
+.product-lead {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.spec-section h3 {
+    margin: 28px 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.spec-section p,
+.spec-section li {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.spec-section ul {
+    margin: 0 0 18px;
+    padding-left: 20px;
+}
+
+@media (max-width: 800px) {
+    .catalog-detail-page {
+        padding: 75px 0;
+    }
+
+    .catalog-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-detail-card-content {
+        padding: 24px;
+    }
+}
+
+
+/* =========================================================
+   ETAPA 13 — PÁGINAS INSTITUCIONALES E IDEAS
+   Mantiene el mismo lenguaje visual de la página principal.
+   ========================================================= */
+.site-footer {
+    padding: 34px 24px;
+    background: #304238;
+    color: #f7f4ee;
+    text-align: center;
+}
+
+.footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+/* Footer logo: preserve the original white and gray artwork */
+.site-footer .footer-brand img {
+    width: 150px;
+    height: auto;
+    max-height: 78px;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+}
+
+.site-footer p {
+    margin: 10px auto 0;
+    max-width: 620px;
+    color: rgba(247, 244, 238, .82);
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+.site-footer .copyright {
+    margin-top: 18px;
+    font-size: .78rem;
+    color: rgba(247, 244, 238, .62);
+}
+
+.ideas-page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 76px 24px 90px;
+}
+
+.ideas-hero {
+    max-width: 760px;
+    margin: 0 auto 46px;
+    text-align: center;
+}
+
+.ideas-hero h1 {
+    margin: 10px 0 18px;
+}
+
+.ideas-hero>p:last-child {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: #5e625d;
+}
+
+.ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.idea-card {
+    padding: 30px;
+    background: #f8f6f1;
+    border: 1px solid rgba(48, 66, 56, .14);
+    border-radius: 2px;
+}
+
+.idea-card h2 {
+    margin: 8px 0 14px;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    color: #28352d;
+}
+
+.idea-card p {
+    line-height: 1.75;
+    color: #555c55;
+}
+
+.idea-card .idea-product {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(48, 66, 56, .14);
+    font-size: .92rem;
+}
+
+.ideas-sources {
+    margin: 42px auto 0;
+    max-width: 850px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(48, 66, 56, .18);
+}
+
+.ideas-sources h2 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.ideas-sources p {
+    font-size: .86rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+@media (max-width:760px) {
+    .ideas-page {
+        padding: 52px 18px 64px
+    }
+
+    .ideas-grid {
+        grid-template-columns: 1fr
+    }
+
+    .idea-card {
+        padding: 24px
+    }
+
+    .site-footer {
+        padding: 28px 18px
+    }
+}
+
+/* =========================================================
+   STAGE 14 — CLIENTES E IDEAS
+   Presentación institucional coherente con la página principal.
+   ========================================================= */
+.clientes-page .section-intro {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    text-align: center
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: .75rem;
+    font-weight: 700;
+    color: #6b806c
+}
+
+.lead {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: #59615b
+}
+
+.clientes-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: 36px;
+    align-items: center
+}
+
+.clientes-feature>img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px
+}
+
+.clientes-copy h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    line-height: 1.15
+}
+
+.clientes-copy p {
+    line-height: 1.75;
+    color: #59615b
+}
+
+.clientes-pilares {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px
+}
+
+.clientes-pilares div {
+    padding-left: 16px;
+    border-left: 2px solid #b8c5b5
+}
+
+.clientes-pilares strong,
+.clientes-pilares span {
+    display: block
+}
+
+.clientes-pilares strong {
+    margin-bottom: 4px
+}
+
+.clientes-pilares span {
+    font-size: .95rem;
+    color: #68716a;
+    line-height: 1.5
+}
+
+.ideas-note {
+    margin-top: 28px;
+    padding: 18px 22px;
+    border-left: 3px solid #8a9d84;
+    background: #f3f5f0;
+    color: #59615b
+}
+
+.ideas-note strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #26342a
+}
+
+.ideas-note p {
+    margin: 0;
+    line-height: 1.6
+}
+
+@media(max-width:760px) {
+    .clientes-feature {
+        grid-template-columns: 1fr;
+        gap: 24px
+    }
+
+    .clientes-page .section-intro {
+        margin-bottom: 24px
+    }
+}
+
+
+/* STAGE 15 — Listado de clientes y página institucional */
+.clientes-intro-card {
+    max-width: 900px;
+    margin: 0 auto 34px;
+    padding: 24px 28px;
+    background: #f8f6f0;
+    border-left: 3px solid #9aaa91;
+    color: #59615b;
+    line-height: 1.75;
+    text-align: center
+}
+
+.clientes-listado {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start
+}
+
+.clientes-grupo {
+    height: 100%;
+    padding: 26px 24px;
+    background: #fff;
+    border: 1px solid rgba(40, 48, 40, .12);
+    border-top: 3px solid #9aaa91
+}
+
+.clientes-grupo h2 {
+    margin: 0 0 18px;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    color: #304238
+}
+
+.clientes-grupo ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.clientes-grupo li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(40, 48, 40, .09);
+    font-size: .88rem;
+    line-height: 1.45;
+    color: #59615b
+}
+
+.clientes-grupo li:last-child {
+    border-bottom: 0
+}
+
+.conocenos-page .section-intro {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    text-align: center
+}
+
+.conocenos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1000px;
+    margin: 0 auto
+}
+
+.conocenos-card {
+    padding: 30px;
+    background: #fff;
+    border: 1px solid rgba(40, 48, 40, .12);
+    border-top: 3px solid #9aaa91
+}
+
+.conocenos-card h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    line-height: 1.2;
+    color: #304238
+}
+
+.conocenos-card p {
+    margin: 0 0 14px;
+    color: #59615b;
+    line-height: 1.75
+}
+
+.conocenos-card p:last-child {
+    margin-bottom: 0
+}
+
+.conocenos-card-principal {
+    grid-column: span 2;
+    background: #f8f6f0
+}
+
+.conocenos-card-beneficios ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #59615b
+}
+
+.conocenos-card-beneficios li {
+    margin-bottom: 10px;
+    line-height: 1.6
+}
+
+@media(max-width:900px) {
+    .clientes-listado {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .conocenos-grid {
+        grid-template-columns: 1fr
+    }
+
+    .conocenos-card-principal {
+        grid-column: auto
+    }
+}
+
+@media(max-width:600px) {
+    .clientes-listado {
+        grid-template-columns: 1fr
+    }
+
+    .clientes-grupo,
+    .conocenos-card {
+        padding: 24px 20px
+    }
+
+    .clientes-intro-card {
+        padding: 20px
+    }
+
+    .conocenos-page .section-intro {
+        margin-bottom: 24px
+    }
+}
+
+
+/* ==============================================================
+   ETAPA 16 · DIRECCIÓN EDITORIAL 2026
+   Inspiración: composición de catálogo, tonos naturales y
+   fotografía de ambientes. No copia la identidad de terceros.
+   ============================================================== */
+:root {
+    --editorial-ink: #2f302b;
+    --editorial-olive: #68735b;
+    --editorial-sage: #dfe4d8;
+    --editorial-paper: #f7f4ed;
+    --editorial-sand: #e9e1d3;
+}
+
+body {
+    background: var(--editorial-paper);
+    color: var(--editorial-ink);
+}
+
+.site-header {
+    background: rgba(247, 244, 237, .98);
+    border-bottom: 1px solid rgba(47, 48, 43, .16);
+}
+
+.top-bar {
+    background: var(--editorial-ink);
+    letter-spacing: .18em;
+}
+
+.main-header {
+    min-height: 92px;
+    padding: 14px 0;
+}
+
+.main-nav a {
+    color: var(--editorial-ink);
+    font-size: 10px;
+    letter-spacing: .12em;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--editorial-olive);
+    border-bottom-color: var(--editorial-olive);
+}
+
+.hero {
+    height: min(76vh, 760px);
+    min-height: 520px;
+    background: var(--editorial-sand);
+}
+
+.hero::after {
+    background: linear-gradient(90deg, rgba(24, 28, 22, .58), rgba(24, 28, 22, .08) 70%);
+}
+
+.hero-content {
+    left: 8%;
+    bottom: 13%;
+    max-width: 620px;
+}
+
+.hero-content h1 {
+    font-size: clamp(42px, 5.8vw, 82px);
+    line-height: .98;
+    letter-spacing: -.045em;
+}
+
+.hero-description {
+    max-width: 430px;
+    font-size: 15px;
+}
+
+.button {
+    background: var(--editorial-ink);
+    border-color: var(--editorial-ink);
+    color: #fff;
+}
+
+.button:hover {
+    background: transparent;
+    color: var(--editorial-ink);
+    border-color: var(--editorial-ink);
+}
+
+.catalog-detail-page {
+    background: var(--editorial-paper);
+}
+
+.catalog-detail-intro {
+    max-width: 850px;
+    padding-top: 78px;
+    padding-bottom: 42px;
+}
+
+.catalog-detail-intro h1 {
+    max-width: 760px;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -.045em;
+}
+
+.catalog-detail-grid {
+    gap: 28px;
+}
+
+.catalog-detail-card {
+    background: #fff;
+    border: 1px solid rgba(47, 48, 43, .14);
+    box-shadow: none;
+}
+
+.product-card-media {
+    background: linear-gradient(145deg, #f2eee6, #e4ded2);
+    min-height: 300px;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.product-card-media img {
+    width: 100%;
+    height: 290px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.catalog-detail-card-content {
+    padding: 30px;
+}
+
+.catalog-detail-card-content h2 {
+    font-size: clamp(30px, 3vw, 44px);
+    line-height: 1;
+    letter-spacing: -.035em;
+}
+
+.product-artwork-note {
+    max-width: 1120px;
+    margin: 0 auto 28px;
+    padding: 18px 22px;
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    background: var(--editorial-sage);
+    border-left: 4px solid var(--editorial-olive);
+    font-size: 13px;
+}
+
+.product-img {
+    width: 100%;
+    max-width: 350px;
+    /* Keeps a uniform maximum width */
+    height: 280px;
+    /* Forces a consistent image box height */
+    object-fit: contain;
+    /* Preserves original proportions without stretching */
+    display: block;
+    margin: 0 auto;
+    /* Centers the image */
+}
+
+.product-artwork-note strong {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.product-artwork-note span {
+    color: #5b6155;
+}
+
+.site-footer {
+    background: var(--editorial-ink);
+    color: #f7f4ed;
+}
+
+@media (max-width: 760px) {
+    .main-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .main-nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    .hero-content {
+        left: 7%;
+        width: 86%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(38px, 12vw, 58px);
+    }
+
+    .product-artwork-note {
+        display: block;
+    }
+
+    .product-artwork-note strong,
+    .product-artwork-note span {
+        display: block;
+    }
+
+    .product-artwork-note span {
+        margin-top: 8px;
+    }
+}
+
+/* ETAPA 17 — Página comercial de maquila */
+.maquila-page {
+    background: var(--editorial-paper);
+    color: var(--editorial-ink)
+}
+
+.maquila-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 590px;
+    border-bottom: 1px solid rgba(47, 48, 43, .12)
+}
+
+.maquila-hero-copy {
+    padding: 90px clamp(28px, 7vw, 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start
+}
+
+.maquila-hero-copy h1 {
+    font-size: clamp(44px, 6vw, 78px);
+    line-height: .98;
+    letter-spacing: -.05em;
+    margin: 0 0 28px;
+    max-width: 650px
+}
+
+.maquila-hero-lead {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    max-width: 540px;
+    margin: 0 0 16px
+}
+
+.maquila-hero-support {
+    color: #68716a;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 0 30px
+}
+
+.maquila-hero-visual {
+    min-height: 590px;
+    background: #e9e1d3;
+    overflow: hidden
+}
+
+.maquila-hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block
+}
+
+.maquila-button {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 4px
+}
+
+.maquila-section {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 92px 28px
+}
+
+.maquila-section-heading {
+    max-width: 700px
+}
+
+.maquila-section-heading h2,
+.maquila-cta h2 {
+    font-size: clamp(32px, 4.5vw, 58px);
+    line-height: 1.03;
+    letter-spacing: -.045em;
+    margin: 0
+}
+
+.maquila-section-text {
+    max-width: 650px;
+    margin: 28px 0 0 auto;
+    color: #59615b;
+    line-height: 1.8;
+    font-size: 1.02rem
+}
+
+.maquila-section-intro {
+    max-width: 760px;
+    color: #68716a;
+    line-height: 1.75;
+    font-size: 1.02rem;
+    margin: 24px 0 34px
+}
+
+.maquila-quality {
+    border-top: 1px solid rgba(47, 48, 43, .12)
+}
+
+.maquila-quality-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px
+}
+
+.maquila-quality-grid article {
+    padding: 24px 20px;
+    background: #fff;
+    border-top: 3px solid #9aaa91
+}
+
+.maquila-quality-grid h3,
+.maquila-steps h3 {
+    font-size: 1.05rem;
+    line-height: 1.25;
+    margin: 0 0 12px
+}
+
+.maquila-quality-grid p,
+.maquila-steps p {
+    color: #68716a;
+    line-height: 1.6;
+    margin: 0;
+    font-size: .94rem
+}
+
+.maquila-products {
+    background: #e9e1d3;
+    max-width: none;
+    padding-left: max(28px, calc((100% - 1160px)/2));
+    padding-right: max(28px, calc((100% - 1160px)/2))
+}
+
+.maquila-product-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    max-width: 1000px
+}
+
+.maquila-product-list span {
+    background: #f7f4ed;
+    padding: 17px 18px;
+    border: 1px solid rgba(47, 48, 43, .12);
+    font-weight: 600
+}
+
+.maquila-note {
+    max-width: 850px;
+    margin: 28px 0 0;
+    color: #59615b;
+    line-height: 1.7;
+    font-size: .94rem
+}
+
+.maquila-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    margin-top: 38px
+}
+
+.maquila-steps article {
+    border-top: 1px solid #9aaa91;
+    padding-top: 18px
+}
+
+.maquila-steps b {
+    display: block;
+    color: #68735b;
+    font-size: .8rem;
+    letter-spacing: .12em;
+    margin-bottom: 16px
+}
+
+.maquila-benefits {
+    padding-bottom: 78px
+}
+
+.maquila-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 32px
+}
+
+.maquila-benefit-grid div {
+    padding: 22px;
+    background: #fff;
+    border: 1px solid rgba(47, 48, 43, .12);
+    font-weight: 600
+}
+
+.maquila-cta {
+    background: #68735b;
+    color: #f7f4ed;
+    text-align: center;
+    padding: 90px 28px
+}
+
+.maquila-cta .eyebrow {
+    color: #e0e6d8
+}
+
+.maquila-cta h2 {
+    max-width: 760px;
+    margin: 0 auto 22px
+}
+
+.maquila-cta p:not(.eyebrow) {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    line-height: 1.75;
+    color: #edf0e9
+}
+
+.maquila-cta .maquila-button {
+    background: #f7f4ed;
+    color: #2f302b;
+    border-color: #f7f4ed
+}
+
+.maquila-cta .maquila-button:hover {
+    background: transparent;
+    color: #f7f4ed;
+    border-color: #f7f4ed
+}
+
+@media(max-width:900px) {
+    .maquila-hero {
+        grid-template-columns: 1fr
+    }
+
+    .maquila-hero-visual {
+        min-height: 380px;
+        order: -1
+    }
+
+    .maquila-hero-copy {
+        padding: 62px 28px
+    }
+
+    .maquila-quality-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .maquila-product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .maquila-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .maquila-benefit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:600px) {
+    .maquila-section {
+        padding: 64px 20px
+    }
+
+    .maquila-hero-copy {
+        padding: 52px 20px
+    }
+
+    .maquila-hero-visual {
+        min-height: 280px
+    }
+
+    .maquila-quality-grid,
+    .maquila-product-list,
+    .maquila-steps,
+    .maquila-benefit-grid {
+        grid-template-columns: 1fr
+    }
+
+    .maquila-section-heading h2,
+    .maquila-cta h2 {
+        font-size: clamp(32px, 10vw, 46px)
+    }
+}
+
+/*
+  Product image frame — Látex Superior
+  The wrapper gives the product a stable 4:3 area.
+  object-fit: cover removes unnecessary white margins from the source image.
+  The modest scale makes the bucket prominent without changing the label.
+*/
+.product-image-frame {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.product-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1.22);
+}
+
+/* =========================================================
+   CONTACTENOS — modern editorial contact page
+   These classes belong only to contactenos.html.
+   The layout is two columns on desktop and one column on mobile.
+   ========================================================= */
+.contact-page {
+    background: var(--editorial-paper);
+    color: var(--editorial-ink);
+}
+
+.contact-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 500px;
+    border-bottom: 1px solid rgba(47, 48, 43, .12);
+}
+
+.contact-hero-copy {
+    padding: 84px clamp(24px, 7vw, 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-hero-copy h1 {
+    margin: 0 0 24px;
+    max-width: 650px;
+    font-size: clamp(44px, 6vw, 76px);
+    line-height: .98;
+    letter-spacing: -.05em;
+}
+
+.contact-hero-lead {
+    max-width: 540px;
+    margin: 0;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    color: #59615b;
+}
+
+.contact-hero-image {
+    min-height: 500px;
+    overflow: hidden;
+    background: #e9e1d3;
+}
+
+.contact-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.contact-section {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 88px 28px;
+}
+
+.contact-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 72px;
+    align-items: start;
+}
+
+.contact-information h2,
+.contact-form h2,
+.contact-section-heading h2,
+.contact-location-copy h2 {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1.04;
+    letter-spacing: -.04em;
+}
+
+.contact-intro {
+    max-width: 480px;
+    color: #68716a;
+    line-height: 1.75;
+    margin: 24px 0 34px;
+}
+
+.contact-details {
+    border-top: 1px solid rgba(47, 48, 43, .16);
+}
+
+.contact-detail {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(47, 48, 43, .16);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-detail-label {
+    color: #68735b;
+    font-size: .74rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.contact-detail strong,
+.contact-detail a {
+    color: var(--editorial-ink);
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.contact-detail a:hover,
+.contact-map-link:hover {
+    text-decoration: underline;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 36px;
+    border: 1px solid rgba(47, 48, 43, .13);
+}
+
+.contact-form h2 {
+    font-size: clamp(28px, 3vw, 42px);
+    margin-bottom: 28px;
+}
+
+.contact-form label {
+    display: block;
+    margin: 18px 0 7px;
+    font-size: .86rem;
+    font-weight: 700;
+}
+
+.contact-form label span {
+    color: #68716a;
+    font-weight: 400;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(47, 48, 43, .25);
+    background: #fbfaf7;
+    color: var(--editorial-ink);
+    padding: 13px 14px;
+    font: inherit;
+    border-radius: 0;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid #9aaa91;
+    outline-offset: 2px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button {
+    margin-top: 24px;
+    border: 1px solid var(--editorial-ink);
+    background: var(--editorial-ink);
+    color: #fff;
+    padding: 14px 24px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #68735b;
+    border-color: #68735b;
+}
+
+.contact-reasons {
+    border-top: 1px solid rgba(47, 48, 43, .12);
+}
+
+.contact-section-heading {
+    max-width: 650px;
+    margin-bottom: 36px;
+}
+
+.contact-reason-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.contact-reason-grid article {
+    background: #fff;
+    border-top: 3px solid #9aaa91;
+    padding: 25px 22px;
+}
+
+.contact-reason-grid span {
+    color: #68735b;
+    font-size: .78rem;
+    letter-spacing: .12em;
+    font-weight: 700;
+}
+
+.contact-reason-grid h3 {
+    margin: 24px 0 12px;
+    font-size: 1.15rem;
+}
+
+.contact-reason-grid p {
+    margin: 0;
+    color: #68716a;
+    line-height: 1.65;
+}
+
+.contact-location {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: 0;
+    background: #e9e1d3;
+}
+
+.contact-location-copy {
+    padding: 70px clamp(28px, 7vw, 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-location-copy p:not(.eyebrow) {
+    color: #59615b;
+    line-height: 1.7;
+    margin: 24px 0;
+}
+
+.contact-map-link {
+    color: var(--editorial-ink);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.contact-map {
+    min-height: 360px;
+}
+
+.contact-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    border: 0;
+}
+
+@media (max-width:900px) {
+
+    .contact-hero,
+    .contact-main-grid,
+    .contact-location {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero-image {
+        min-height: 360px;
+        order: -1;
+    }
+
+    .contact-main-grid {
+        gap: 42px;
+    }
+
+    .contact-reason-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-location-copy {
+        padding: 60px 28px;
+    }
+}
+
+@media (max-width:600px) {
+    .contact-hero-copy {
+        padding: 56px 20px;
+    }
+
+    .contact-section {
+        padding: 64px 20px;
+    }
+
+    .contact-form {
+        padding: 25px 20px;
+    }
+
+    .contact-hero-image {
+        min-height: 280px;
+    }
+
+    .contact-map,
+    .contact-map iframe {
+        min-height: 280px;
+    }
+}
+
+/* =========================================================
+   CLIENTES: página editorial de confianza comercial
+   ========================================================= */
+.clientes-page-shell {
+    background: var(--dekora-cream, #f5f1e8);
+}
+
+.clientes-hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 72px 32px 48px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 56px;
+    align-items: center;
+}
+
+.clientes-hero-copy {
+    max-width: 520px;
+}
+
+.clientes-hero-copy .lead {
+    max-width: 480px;
+}
+
+.clientes-hero-visual {
+    min-height: 360px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, rgba(245, 241, 232, .05), rgba(245, 241, 232, 0)), url('../img/inspiracion.webp') center/cover;
+}
+
+.clientes-page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 32px 80px;
+}
+
+.clientes-intro-card {
+    max-width: 760px;
+    padding: 42px 0 56px;
+}
+
+.clientes-intro-card h2,
+.clientes-cta h2 {
+    max-width: 650px;
+    margin: 8px 0 14px;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.08;
+    font-weight: 500;
+}
+
+.clientes-intro-card p:last-child {
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.clientes-listado {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.clientes-grupo {
+    background: #fffdf8;
+    border-top: 3px solid #7b8461;
+    padding: 28px 26px 30px;
+    min-width: 0;
+}
+
+.clientes-grupo h2 {
+    margin: 8px 0 12px;
+    font-size: 30px;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.clientes-grupo-intro {
+    color: #68685f;
+    line-height: 1.6;
+    min-height: 78px;
+}
+
+.clientes-grupo ul {
+    list-style: none;
+    padding: 18px 0 0;
+    margin: 0;
+    border-top: 1px solid #ddd8cc;
+}
+
+.clientes-grupo li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eeeae1;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.clientes-cta {
+    margin-top: 56px;
+    padding: 36px 0 0;
+    border-top: 1px solid #d7d1c4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.clientes-cta h2 {
+    font-size: clamp(26px, 3vw, 38px);
+    margin-bottom: 0;
+}
+
+.clientes-cta .button {
+    display: inline-block;
+    padding: 14px 22px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+@media (max-width: 850px) {
+    .clientes-hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding-top: 48px;
+    }
+
+    .clientes-hero-visual {
+        min-height: 280px;
+    }
+
+    .clientes-listado {
+        grid-template-columns: 1fr;
+    }
+
+    .clientes-grupo-intro {
+        min-height: auto;
+    }
+
+    .clientes-cta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .clientes-hero,
+    .clientes-page {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .clientes-hero-visual {
+        min-height: 220px;
+    }
+
+    .clientes-intro-card {
+        padding-top: 24px;
+    }
+}
+
+
+/* =========================================================
+   Conócenos page
+   These rules create the same editorial layout used by the
+   newer Dekora pages: spacious, responsive and easy to read.
+   ========================================================= */
+.conocenos-hero {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    min-height: 430px;
+    background: #eee9df;
+}
+
+.conocenos-hero .page-hero-copy {
+    padding: clamp(2.5rem, 6vw, 6rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.conocenos-hero h1 {
+    margin: .2rem 0 1rem;
+}
+
+.conocenos-hero .page-hero-media {
+    min-height: 330px;
+}
+
+.conocenos-hero .page-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.story-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(220px, .65fr);
+    gap: 4rem;
+    align-items: end;
+    padding: clamp(3rem, 7vw, 6rem) 0;
+}
+
+.story-copy {
+    max-width: 720px;
+}
+
+.story-copy h2,
+.values-section h2,
+.promise-section h2 {
+    margin: .25rem 0 1.25rem;
+}
+
+.story-copy p,
+.promise-section p {
+    max-width: 680px;
+}
+
+.story-note {
+    border-top: 1px solid rgba(65, 72, 55, .35);
+    padding-top: 1.25rem;
+}
+
+.story-number {
+    display: block;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: .9;
+    color: #6d7658;
+    font-weight: 600;
+}
+
+.values-section {
+    padding: 0 0 clamp(3rem, 7vw, 6rem);
+}
+
+.section-intro.compact {
+    margin-bottom: 2rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.value-card {
+    border-top: 1px solid rgba(65, 72, 55, .35);
+    padding-top: 1.25rem;
+}
+
+.value-index {
+    color: #6d7658;
+    font-weight: 600;
+    letter-spacing: .08em;
+}
+
+.value-card h3 {
+    margin: .5rem 0 .75rem;
+}
+
+.promise-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    padding: clamp(2.5rem, 5vw, 4rem);
+    background: #e8e4d9;
+}
+
+.button-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 1.2rem;
+    background: #697356;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 999px;
+}
+
+.button-link:hover {
+    background: #566044;
+}
+
+@media (max-width: 760px) {
+
+    .conocenos-hero,
+    .story-section,
+    .promise-section {
+        grid-template-columns: 1fr;
+    }
+
+    .conocenos-hero .page-hero-copy {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .story-section {
+        gap: 2rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* =========================================================
+   CARTA DE COLORES
+   A calm editorial layout for the colour catalogue.
+   The original carta.webp remains unchanged as the colour reference.
+   ========================================================= */
+.carta-page {
+    background: var(--dekora-cream, #f5f1e8);
+}
+
+.carta-hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 72px 32px 56px;
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: 56px;
+    align-items: center;
+}
+
+.carta-hero-copy {
+    max-width: 540px;
+}
+
+.carta-hero h1 {
+    margin: .25rem 0 1.25rem;
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+    line-height: 1.03;
+    font-weight: 500;
+}
+
+.carta-hero .lead {
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.carta-note {
+    margin-top: 1.5rem;
+    color: #68685f;
+    font-size: .92rem;
+    line-height: 1.6;
+}
+
+.carta-hero-media {
+    background: #fffdf8;
+    padding: 14px;
+    box-shadow: 0 12px 35px rgba(65, 72, 55, .08);
+}
+
+.carta-hero-media img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carta-library {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 32px 72px;
+}
+
+.carta-library .section-intro {
+    max-width: 680px;
+    margin-bottom: 28px;
+}
+
+.carta-library h2 {
+    margin: .25rem 0 1rem;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.08;
+    font-weight: 500;
+}
+
+.carta-library .section-intro p:last-child {
+    line-height: 1.7;
+}
+
+.carta-image-frame {
+    background: #fff;
+    padding: clamp(10px, 2vw, 22px);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(65, 72, 55, .06);
+}
+
+.carta-image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.carta-cta {
+    max-width: 1116px;
+    margin: 0 auto 72px;
+    padding: 38px 32px;
+    background: #e8e4d9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.carta-cta h2 {
+    max-width: 650px;
+    margin: .25rem 0 0;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.carta-cta .button-link {
+    flex-shrink: 0;
+}
+
+@media (max-width: 820px) {
+    .carta-hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-top: 48px;
+    }
+
+    .carta-hero-copy {
+        max-width: 720px;
+    }
+
+    .carta-hero-media img {
+        height: auto;
+        max-height: 420px;
+    }
+
+    .carta-cta {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .carta-hero,
+    .carta-library {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .carta-hero h1 {
+        font-size: 2.55rem;
+    }
+
+    .carta-hero-media {
+        padding: 8px;
+    }
+
+    .carta-library {
+        padding-bottom: 48px;
+    }
+
+    .carta-cta {
+        padding: 30px 22px;
+    }
+}
+
+/* =========================================================
+   HOMEPAGE — carta de colores y refinamientos comerciales
+   ========================================================= */
+.product-card .color-card-image {
+    width: 100%;
+    height: 510px;
+    display: block;
+    object-fit: cover;
+    object-position: 58% center;
+    background: var(--cream);
+}
+
+.product-card-latex .product-image-frame {
+    min-height: 510px;
+}
+
+.product-card-latex .product-image-frame img {
+    min-height: 510px;
+}
+
+.products-header>p:last-child {
+    max-width: 620px;
+}
+
+.services .service-content p:not(.eyebrow) {
+    max-width: 520px;
+}
+
+.cta h2 {
+    max-width: 820px;
+}
+
+@media (max-width: 700px) {
+    .product-card .color-card-image {
+        height: 360px;
+        object-position: 58% center;
+    }
+
+    .product-card-latex .product-image-frame,
+    .product-card-latex .product-image-frame img {
+        min-height: 360px;
+    }
+}
+
+
+/* Carta de colores: fotografía editorial en el hero y carta completa solo una vez. */
+.carta-hero-media img {
+    object-position: center center;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+}
+
+.carta-image-frame {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.carta-image-frame img {
+    object-fit: contain;
+}
+
+@media (max-width: 820px) {
+    .carta-hero-media img {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+
+/* INDEX — keep the first Látex Superior bucket balanced beside the product link.
+   Unlike catalog cards, this image must show the complete bucket without cropping. */
+.intro .intro-superior-image {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 560px;
+    justify-self: center;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+.intro .intro-superior-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: clamp(28px, 4vw, 54px);
+    object-fit: contain;
+    object-position: center;
+    transform: scale(0.88);
+}
+
+@media (max-width: 700px) {
+    .intro .intro-superior-image {
+        max-width: 440px;
+    }
+
+    .intro .intro-superior-image img {
+        padding: 24px;
+        transform: scale(0.9);
+    }
+}
+
+.whatsapp-link-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    /* Espacio proporcionado entre el icono y el texto */
+    text-decoration: none;
+    font-weight: 500;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+.whatsapp-link-inline:hover {
+    color: #25D366;
+    /* Realce sutil en tono WhatsApp al hacer hover */
+}
+
+.whatsapp-icon {
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+/* Botón flotante fijo de WhatsApp */
+.whatsapp-float-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: #ffffff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float-btn:hover {
+    background-color: #20ba5a;
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float-icon {
+    width: 32px;
+    height: 32px;
+    fill: #ffffff;
+}

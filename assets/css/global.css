@@ -1,0 +1,61 @@
+/* DEKORA: Shared/global styles used across the website. */
+DIV#slideholder {
+	padding:1px 0 0 0;
+	OVERFLOW: hidden; 
+	WIDTH: 930px;  
+	HEIGHT: 488px;
+}
+DIV#slideholder DIV#slide_holder {
+	OVERFLOW: hidden; 
+	POSITION: relative;
+}
+DIV#slideholder DIV#slide_holder A {
+	DISPLAY: block; 
+	WIDTH: 930px;  
+	HEIGHT: 488px; 
+	TEXT-ALIGN: left;
+}
+DIV#slideholder DIV#slide_holder UL {
+	Z-INDEX: 1000; 
+	LEFT: 27px; 
+	BOTTOM: 0px;
+	POSITION: absolute;
+	HEIGHT: 14px;
+	list-style:none;
+}
+DIV#slideholder DIV#slide_holder UL LI {
+	FLOAT: left; 
+	MARGIN: 0px 0px 0px 8px;
+	WIDTH: 14px;
+	HEIGHT: 14px;
+}
+DIV#slideholder DIV#slide_holder UL LI:first-child {
+	margin-left:830px;
+}
+DIV#slideholder DIV#slide_holder UL LI A {
+	padding:20px 0 0 0;
+	BACKGROUND:url(../imagenes/slideshow_item.png) no-repeat 0px 0px;
+	OVERFLOW: hidden; 
+	WIDTH: 20px;
+	CURSOR: pointer;
+	HEIGHT: 0;
+	DISPLAY: block;
+}
+DIV#slideholder DIV#slide_holder UL LI A.current {
+	BACKGROUND:url(../imagenes/slideshow_active.png) no-repeat 0px 0px;
+}
+DIV#slideholder DIV#slide_holder UL LI A:hover {
+	BACKGROUND: url(../imagenes/slideshow_active.png) no-repeat 0px 0px;
+}
+/*--------------------------------------*/
+.slideshowlite {
+	OVERFLOW: hidden; 
+	POSITION: relative;
+}
+.slideshowlite A {
+	Z-INDEX: 1; 
+	WIDTH: 930px;
+	POSITION: absolute;
+	HEIGHT: 600px;
+	TEXT-ALIGN: left;
+}

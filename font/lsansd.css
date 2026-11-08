@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'LucidaSansDemiboldRoman';
+    src: url('lsansd.eot');
+    src: url('lsansd.eot') format('embedded-opentype'),
+         url('lsansd.woff') format('woff'),
+         url('lsansd.ttf') format('truetype'),
+         url('lsansd.svg#LucidaSansDemiboldRoman') format('svg');
+}
